@@ -2,7 +2,7 @@
     //Aula atual   -> Aula 06 Tratamento de exeções  
     //Próxima aula -> Aula 07
 
-    /* Curso de conexão com banco de dados com PDO - Fomação PHP
+    /* Curso de conexão com banco de dados com PDO - Formação PHP
      * Aluno: Jefferson Mateus
      * Prof: Manoel Jailton
      */
