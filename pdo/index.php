@@ -18,15 +18,23 @@ try {//Oque deve ser executado
      *  O metado exec retorna a quantidade de linhas que foram afetadas no banco de dados  
      */
 
-    //$comando = "insert into cliente (nome, email) values ('Mateus', 'Mateus@mateus.com.br')"
-    //$comando = "update cliente set ativo='S' where nome like '%a%'"; //Atige na coluna 'ativo' as linhas que possuem no 'nome' a letra a
-    $comando = "delete from cliente where email='jefferson@jefferson.com.br'"; //Deleta toda linha que possui esse endereco
+    //$sql = "insert into cliente (nome, email) values ('Mateus', 'Mateus@mateus.com.br')"
+    //$sql = "update cliente set ativo='S' where nome like '%a%'"; //Atige na coluna 'ativo' as linhas que possuem no 'nome' a letra a
+    //$sql = "delete from cliente where email='jefferson@jefferson.com.br'"; //Deleta toda linha que possui esse endereco
 
-    $resultado = $conexao->exec($comando); //O comando sql e passado para a conexão. Exec observa quantas linhas foram afetadas pelo comando
+    //$resultado = $conexao->exec($comando); //O comando sql e passado para a conexão. Exec observa quantas linhas foram afetadas pelo comando
+    
+    /*Emprimindo dados do BD*/
+    
+    $sql = 'select * from cliente';
+    $stmt = $conexao ->query($sql);
+    $resultado = $stmt->fetchAll();
     
     //Imprime resultado
-    echo "Number of rows affected " . $resultado . "</br>";
     
+    echo"<pre>";
+    print_r($resultado);
+    echo '</pre>';
    
 } catch (PDOException $e) {//Oque deve ser executado caso tenha algum erro (Exeção)
     
