@@ -1,6 +1,6 @@
 <?php
 
-/* Proxima aula -> Aula 15 sql injection
+/* Proxima aula -> Aula 15 Metado prepare
  * Curso de conexão com banco de dados com PDO - Formação PHP
  * Aluno: Jefferson Mateus da Silva Diass
  * Prof: Manoel Jailton
@@ -27,20 +27,20 @@ try {//Oque deve ser executado
     
     /*Emprimindo dados do BD*/
     
-    $sql = 'select * from cliente';
+    $sql = "select * from cliente";
     $statement = $conexao ->query($sql);
-    $resultado = $statement->fetchAll();
+    $linha = $statement->fetchAll();
     
     //Imprime resultado
     
     //Imprime todos os nomes da tabela
     for ($i = 0; $i < $statement->rowCount(); $i ++){ //rowCount - Returns the number of rows affected by the last SQL statement
-        echo ($resultado[$i]['nome']."</br>");
+        echo ($linha[$i]['nome']."</br>");
      
     }
     
     echo"<pre>";
-    print_r($resultado); //Print the object
+    print_r($linha); //Print the object
     echo '</pre>';
    
 } catch (PDOException $e) {//Oque deve ser executado caso tenha algum erro (Exeção)
