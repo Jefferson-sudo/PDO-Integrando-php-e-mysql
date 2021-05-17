@@ -1,21 +1,22 @@
 <?php
 
-/* Proxima aula -> Aula 10 Estudando query
+/* Proxima aula -> Aula 12
  * Curso de conexão com banco de dados com PDO - Formação PHP
  * Aluno: Jefferson Mateus da Silva Diass
  * Prof: Manoel Jailton
  */
 
 //Tratamento de exeções com try e catch
+//Exception handling with try and  catch
 
 try {//Oque deve ser executado
     
-    $conexao = new \PDO("mysql:host=localhost;dbname=estudoPDO", "root", ""); //Criando conexao com o banco
-    //A conexao deve receber o banco, host,    nome do banco,    usuario, e senha
+    $conexao = new \PDO("mysql:host=localhost;dbname=estudoPDO", "root", ""); //Creating database connection
+    //The connection must receive the bank, host, database name, user and password
 
 
     /* Estudando o exec 
-     *  O metado exec retorna a quantidade de linhas que foram afetadas no banco de dados  
+     * The EXEC method returns the number of rows that were affected in the database
      */
 
     //$sql = "insert into cliente (nome, email) values ('Mateus', 'Mateus@mateus.com.br')"
@@ -27,13 +28,19 @@ try {//Oque deve ser executado
     /*Emprimindo dados do BD*/
     
     $sql = 'select * from cliente';
-    $stmt = $conexao ->query($sql);
-    $resultado = $stmt->fetchAll();
+    $statement = $conexao ->query($sql);
+    $resultado = $statement->fetchAll();
     
     //Imprime resultado
     
+    //Imprime todos os nomes da tabela
+    for ($i = 0; $i < $statement->rowCount(); $i ++){ //rowCount - Returns the number of rows affected by the last SQL statement
+        echo ($resultado[$i]['nome']."</br>");
+     
+    }
+    
     echo"<pre>";
-    print_r($resultado);
+    print_r($resultado); //Print the object
     echo '</pre>';
    
 } catch (PDOException $e) {//Oque deve ser executado caso tenha algum erro (Exeção)
