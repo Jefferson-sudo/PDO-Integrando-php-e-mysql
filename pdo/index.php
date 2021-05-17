@@ -1,6 +1,6 @@
 <?php
 
-/* Proxima aula -> Aula 12
+/* Proxima aula -> Aula 15 sql injection
  * Curso de conexão com banco de dados com PDO - Formação PHP
  * Aluno: Jefferson Mateus da Silva Diass
  * Prof: Manoel Jailton
