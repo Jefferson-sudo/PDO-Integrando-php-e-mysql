@@ -12,7 +12,8 @@
 try {//Oque deve ser executado
     
     $conexao = new \PDO("mysql:host=localhost;dbname=estudoPDO", "root", ""); //Creating database connection
-    //The connection must receive the bank, host, database name, user and password
+    //The connection must receive thnexao = new \PDO("mysql:host=localhost;dbname=estudoPDO", "root", ""); //Creating database connection
+    //The connectie bank, host, database name, user and password
 
 
     /* Estudando o exec 
@@ -26,8 +27,9 @@ try {//Oque deve ser executado
     //$resultado = $conexao->exec($comando); //O comando sql e passado para a conexão. Exec observa quantas linhas foram afetadas pelo comando
     
     /*Emprimindo dados do BD*/
+    $id = $_GET['id'];
     
-    $sql = "select * from cliente";
+    $sql = "select * from cliente where id_cliente=$id";
     $statement = $conexao ->query($sql);
     $linha = $statement->fetchAll();
     
@@ -37,7 +39,7 @@ try {//Oque deve ser executado
     for ($i = 0; $i < $statement->rowCount(); $i ++){ //rowCount - Returns the number of rows affected by the last SQL statement
         echo ($linha[$i]['nome']."</br>");
      
-    }
+    };
     
     echo"<pre>";
     print_r($linha); //Print the object
@@ -45,7 +47,7 @@ try {//Oque deve ser executado
    
 } catch (PDOException $e) {//Oque deve ser executado caso tenha algum erro (Exeção)
     
-    echo'Não foi possivel conectar com o banco de dados :(</br>Erro ' . $e->getCode() . "</br>";
+    echo'Could not connect to the database:(</br>Erro ' . $e->getCode() . "</br>";
     //Mensagem de erro personalisada + a do metado getCode que retorna o codigo do erro
 }
 
