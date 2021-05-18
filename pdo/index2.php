@@ -10,15 +10,19 @@ try{//What should be performed
     
    $conexao = new PDO("mysql:host=localhost;dbname=estudoPDO", "root", "");//Creating   database connection
    
-   $id = $_GET['id']; //Receives the id by url
+   $produto = $_GET['produto']; //Receives the id by url
+   $preco = $_GET['preco'];
    
    //Execuntando uma sql usando o prepare e excute().
    
-   $sql = "select * from cliente where id_cliente = ?";
+   $sql = "INSERT INTO produto (produto, preco)values (?, ?)";
    $statement = $conexao->prepare($sql);//Prepare SQL
-   $statement->bindValue(1,$id);//Faz com que o '?' na linha 17 seja substituido pela variavel $id --Sql injection handling.
-   $statement->execute(); //Run sql
-   $linha = $statement->fetchAll();
+   $statement->bindValue(1,$produto);//Faz com que o '?' na linha 17 seja substituido pela variavel $id --Sql injection handling.
+   $statement->bindValue(2, $preco);
+   
+   //Imprime tudo da tabela
+   $stm=$conexao->query("select * from produto"); //Run sql
+   $linha = $stm->fetchAll();
    
    echo "<pre>";
    print_r($linha);
