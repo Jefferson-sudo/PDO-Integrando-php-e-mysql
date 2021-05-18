@@ -33,4 +33,3 @@ try{//What should be performed
     $erro->getCode();//Returns error message
     
 }
-
