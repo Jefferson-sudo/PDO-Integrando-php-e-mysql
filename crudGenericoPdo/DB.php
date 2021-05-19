@@ -34,9 +34,9 @@ class DB {
     /* Este padrão garante a existência de apenas uma instância de uma classe*/
     public static function getInstance() {
         if (self::$db == null) {
-            self::$db = new self();
+            self::$db = new self();//Chama construtor da classe
         }
-        return $db;
+        return self::$db;
     }
 
     
@@ -44,7 +44,7 @@ class DB {
     public function getDb() {
         if (self::$pdo == null) { //Self por que esta pegando um atributo estático. Testa se não existir PDO
             //Cria conexao com banco de dados -> Creating   database connection
-            self::$pdo = new PDO("mysql:host=" . SERVIDOR, ";dbname=" . BANCO, USUARIO, SENHA, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAME utf8")); //Atributo pdo recebe objeto com os respectivos valores na linha 19
+            self::$pdo = new PDO("mysql:host=" . SERVIDOR. ";dbname=" . BANCO, USUARIO, SENHA, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAME utf8")); //Atributo pdo recebe objeto com os respectivos valores na linha 19
         }
         return self::$pdo;
     }
