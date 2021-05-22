@@ -1,10 +1,5 @@
 <?php
 
-/* Description of DB -> Class responsible for creating, reading, updating and deleting data in the database. 
- * Descrição do BD -> Classe responsavel por criar, ler, atualizar e deletar dados no bando de dados. 
- * @author Jefferson Mateus S. D. 
- */
-
 //Chama o arquivo exigido config.php 
 //Calls the required config.php file
 require_once 'config.php';
@@ -44,9 +39,12 @@ class DB {
     public function getDb() {
         if (self::$pdo == null) { //Self por que esta pegando um atributo estático. Testa se não existir PDO
             //Cria conexao com banco de dados -> Creating   database connection
-            self::$pdo = new PDO("mysql:host=" . SERVIDOR. ";dbname=" . BANCO, USUARIO, SENHA, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAME utf8")); //Atributo pdo recebe objeto com os respectivos valores na linha 19
+            self::$pdo = new PDO("mysql:dbname=" . BANCO. ";host=" . SERVIDOR,  
+                                USUARIO, 
+                                SENHA, 
+                                array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8")); //Atributo pdo recebe objeto com os respectivos valores na linha 19
         }
-        return self::$pdo;
+        return self::$pdo; //Retorna uma instancia do PDO
     }
 
 }
