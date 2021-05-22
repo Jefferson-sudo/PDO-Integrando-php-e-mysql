@@ -10,6 +10,7 @@ include('crudPDO.php');
 
 $dados = array ("nome"=> "Pedro Homem", "email"=> "pedrohomem@pedrohomem.com", "fone"=> "31331311");
 print_r(inserir("cliente", $dados));
+
 //print_r(alterar("cliente", $dados, "id_cliente = 2"));
 
 ?>
