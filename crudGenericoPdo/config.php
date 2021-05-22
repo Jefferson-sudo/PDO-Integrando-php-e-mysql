@@ -4,6 +4,6 @@
 //Keeping the database information in the constants
 
 define("SERVIDOR", "localhost");
-define("USUARIO", "host");
+define("USUARIO", "root");
 define("SENHA", "");
 define("BANCO", "crudpdo");
