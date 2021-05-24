@@ -8,9 +8,9 @@ include('crudPDO.php');
 //$conn = DB::getInstance(); //Abre conexão com o BD chamando o metado estatico da classe DB
 
 
-$dados = array ("nome"=> "Pedro Homem", "email"=> "pedrohomem@pedrohomem.com", "fone"=> "31331311");
-print_r(inserir("cliente", $dados));
+$dados = array ("nome"=> "Pedro Homem Rodrigues", "email"=> "pedrohomem@pedrohomem.com", "fone"=> "31331311");
+//print_r(inserir("cliente", $dados));
 
-//print_r(alterar("cliente", $dados, "id_cliente = 2"));
+print_r(alterar("cliente", $dados, " id_cliente=1")); 
 
 ?>
