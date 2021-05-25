@@ -1,4 +1,23 @@
 <?php
+//CRIANDO A FUNCAO CONSULTAR
+
+function consultar($sql, $parametro=array(), $todos=TRUE, $modo=PDO::FETCH_ASSOC){
+    $conn = DB::getInstance()->getDb();    //Cria conexao
+
+    $stmt = $conn->prepare($sql);          //Preapara o sql
+    foreach ($parametro as $chave=>$valor){//Varre o array dados
+        $tipo = (is_int($valor))? PDO::PARAM_INT : PDO::PARAM_STR;
+        $stmt->bindValue(":$chave", $valor, $tipo);
+    } 
+    
+    $stmt->execute(); //Executa o comando   
+    
+    if($todos){
+        return $stmt->fetchAll($modo);//Retorna todas as linhas
+    }else{
+        return $stmt->fetch($modo);   //Retorna somente uma linhas
+    }
+}
 
 //FUNCAO PARA INSERCAO DE DADOS NA TABELA
 
@@ -63,4 +82,6 @@
         return $stmt->execute();
         
     }
+    
+
     

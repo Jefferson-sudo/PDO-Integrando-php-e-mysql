@@ -6,13 +6,13 @@ include('crudPDO.php');
 //Include é uma função do PHP que permite a inclusão do conteúdo de um outro arquivo no arquivo PHP atual
 
 //$conn = DB::getInstance(); //Abre conexão com o BD chamando o metado estatico da classe DB
-
+echo "<pre>";
 
 $dados = array ("nome"=> "Pedro Homem Rodrigues", "email"=> "pedrohomem@pedrohomem.com", "fone"=> "31331311");
 //print_r(inserir("cliente", $dados));
 
 //print_r(alterar("cliente", $dados, " id_cliente=1")); 
 
-  print_r(excluir("cliente"));
-
+var_dump(consultar("SELECT * FROM cliente", array("email"=>"monica@monica.com"), true, PDO::FETH_OBJ));
+echo"</pre>";
 ?>
