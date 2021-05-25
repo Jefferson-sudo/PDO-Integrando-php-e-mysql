@@ -1,6 +1,7 @@
 <?php
 
-// Aula 05 Testando a classe DB
+//Ultima aula - Criando a funcao consultar
+//OBS. Esta tenho um erro com a função pois quando passo o array nao funciona como deveria e quando passo o PDO::FETCH_OBJ, não retorna nehum valor sequer
 include('DB.php'); 
 include('crudPDO.php');
 //Include é uma função do PHP que permite a inclusão do conteúdo de um outro arquivo no arquivo PHP atual
