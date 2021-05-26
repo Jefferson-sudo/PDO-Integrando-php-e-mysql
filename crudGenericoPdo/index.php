@@ -14,6 +14,6 @@ $dados = array ("nome"=> "Pedro Homem Rodrigues", "email"=> "pedrohomem@pedrohom
 
 //print_r(alterar("cliente", $dados, " id_cliente=1")); 
 
-var_dump(consultar("SELECT * FROM cliente", array("email"=>"monica@monica.com"), true, PDO::FETH_OBJ));
+var_dump(consultar("SELECT * FROM cliente", array("email"=>"monica@monica.com"), false));
 echo"</pre>";
 ?>

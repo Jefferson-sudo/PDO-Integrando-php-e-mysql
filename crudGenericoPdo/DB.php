@@ -19,7 +19,7 @@ class DB {
     final private function __construct() {
         //Tratando exeções
         try {
-            self::getDb(); //Chama o metado getDb -> linha 44
+            self::getDb(); //Chama o metado getDb -> linha 39
         } catch (Exception $exc) {
             $exc->getMessage();//Exeção
         }
